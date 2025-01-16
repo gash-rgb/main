@@ -1,0 +1,2 @@
+ASR_Detection_Last30Days
+DeviceEvents | where Timestamp > ago(30d) | where ActionType startswith "Asr" | summarize EventCount=count() by ActionType
