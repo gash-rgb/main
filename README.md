@@ -1,8 +1,6 @@
 
 
-![robot](https://github.com/user-attachments/assets/bf90f9a7-daef-47a5-8ca1-05a1f78720f2)
-
-<img src="https://github.com/user-attachments/assets/bf90f9a7-daef-47a5-8ca1-05a1f78720f2" width="48">
+<img src="https://github.com/user-attachments/assets/bf90f9a7-daef-47a5-8ca1-05a1f78720f2" width="400">
 
 # Security Operations Scripts & Resources
 
