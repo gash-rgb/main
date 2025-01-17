@@ -16,15 +16,33 @@ $Log = "C:\Users\$USER\Documents\MDE_Custom Script_$(Get-Date -Format 'yyyyMMddh
 Start-Transcript -path $Log -append -Force -NoClobber
 
 # The files with all the hostname/files
+# hostnameList.csv as following : 
+# computername1,username1
+# filelist.csv as following :
+# OneDriveName\Desktop\pdfpower.lnk
+# OneDriveName\Desktop\pdfhub.lnk
+# OneDriveName\Desktop\pdfmagic.lnk
+# OneDriveName\Desktop\searchpoweronline.lnk
+# OneDriveName\Desktop\searcharchiver.lnk
+# OneDriveName\Desktop\zipraraarchiver.lnk
+# Downloads\pdfpower.exe
+# Downloads\pdfhub.exe
+# Downloads\pdfmagic.exe
+# Downloads\searchpoweronline.exe
+# Downloads\searcharchiver.exe
+# Downloads\zipraraarchiver.exe
+# AppData\Local\Temp\PdfPowerB2C\favicon.ico
+# AppData\Local\Temp\PdfPowerB2C\installing.gif
+# AppData\Local\Temp\PdfPowerB2C\installer_loader.gif
+
 
 $hostnameList = Import-csv "C:\Users\$USER\ToBeReplace\Documents\SecOps\Incident Response\hostnameList.csv" -Delimiter "," -Header hostname, user
 $filelist = Get-Content "C:\Users\$USER\ToBeReplace\Documents\SecOps\Incident Response\filelist.csv"
 
-#Debug
+#In case of debug needed
 #echo $hostnameList
 
-# ForEach from a csv file :
-
+# ForEach from csv files :
 
 foreach ($file in $filelist) {
     foreach ($hostname in $hostnameList) {
@@ -33,7 +51,7 @@ foreach ($file in $filelist) {
 
                                             $user = $hostnameList.user
 
-                                            #Mettre le path du file
+                                            #Put the filepath
 
                                            # $newfilepath = Join-Path "\\$computer\c$\Users\$user\" "$file"
 
