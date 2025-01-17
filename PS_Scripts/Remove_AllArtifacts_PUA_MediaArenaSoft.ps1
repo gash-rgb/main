@@ -1,4 +1,4 @@
-# Script for incident response : Remove all artifcats related with Media Arena Softwares :
+# Script for incident response : Remove all artifacts related with PUA Media Arena Softwares :
 ## Pdfpower 
 ## Pdfhub 
 ## Ziprararchiver 
