@@ -1,8 +1,9 @@
 
 
-![openart-image__CA8n8v7_1737107710883_raw](https://github.com/user-attachments/assets/bf90f9a7-daef-47a5-8ca1-05a1f78720f2)
+![robot](https://github.com/user-attachments/assets/bf90f9a7-daef-47a5-8ca1-05a1f78720f2)
 
 <img src="https://github.com/user-attachments/assets/bf90f9a7-daef-47a5-8ca1-05a1f78720f2" width="48">
+
 # Security Operations Scripts & Resources
 
 Welcome to the repository of Andrea G.! This project is a collection of scripts, queries, and resources that I, Andrea G., have used during my security investigations and SecOps operations. The goal of this repository is to provide useful tools for threat hunting, incident response, and general security operations.
