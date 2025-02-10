@@ -1,0 +1,107 @@
+// Transformation KQL Zsscaler JSON Firewall Logs
+source
+| extend EventData = parse_json(event)  // Parser le champ JSON
+| extend 
+    // Extraire directement 'datetime' du JSON sans "event"
+    event_datetime = tostring(EventData["datetime"]),
+    user = tostring(EventData.user),
+    department = tostring(EventData.department),
+    locationname = tostring(EventData.locationname),
+    action = tostring(EventData.action),
+    nwsvc = tostring(EventData.nwsvc),
+    nwapp = tostring(EventData.nwapp),
+    proto = tostring(EventData.proto),
+    destcountry = tostring(EventData.destcountry),
+    inbytes = tolong(EventData.inbytes),
+    outbytes = tolong(EventData.outbytes),
+    duration = tolong(EventData.duration),
+    deviceowner = tostring(EventData.deviceowner),
+    devicehostname = tostring(EventData.devicehostname),
+    threat_score = tolong(EventData.threat_score),
+    aggregate = tostring(EventData.aggregate),
+    avgduration = tostring(EventData.avgduration),
+    cdip = tostring(EventData.cdip),
+    cdport = tostring(EventData.cdport),
+    csip = tostring(EventData.csip),
+    dnat = tostring(EventData.dnat),
+    csport = tostring(EventData.csport),
+    durationms = tostring(EventData.durationms),
+    ipcat = tostring(EventData.ipcat),
+    ipsrulelabel = tostring(EventData.ipsrulelabel),
+    numsessions = tostring(EventData.numsessions),
+    rulelabel = tostring(EventData.rulelabel),
+    sdip = tostring(EventData.sdip),
+    sdport = tostring(EventData.sdport),
+    ssip = tostring(EventData.ssip),
+    ssport = tostring(EventData.ssport),
+    stateful = tostring(EventData.stateful),
+    threatcat = tostring(EventData.threatcat),
+    threatname = tostring(EventData.threatname),
+    tsip = tostring(EventData.tsip),
+    tunsport = tostring(EventData.tunsport),
+    tuntype = tostring(EventData.tuntype),
+    threat_severity = tostring(EventData.threat_severity)
+| extend 
+    // Afficher les valeurs de event_datetime pour diagnostic
+    event_datetime_preview = event_datetime
+| extend 
+    // extract
+day = tostring(extract(@"(\d{2})", 1, event_datetime)),
+month = tostring(extract(@"^[A-Za-z]{3} ([A-Za-z]{3})", 1, event_datetime)),
+year = tostring(extract(@"(\d{4})", 1, event_datetime)),
+hour = tostring(extract(@"(\d{2}):", 1, event_datetime)),
+minute = tostring(extract(@":(\d{2}):", 1, event_datetime)),
+second = tostring(extract(@":(\d{2}) ", 1, event_datetime))
+| extend month_number = case( month == "Jan", "01"
+                              , month == "Feb", "02"
+                              , month == "Mar", "03"
+                              , month == "Apr", "04"
+                              , month == "May", "05"
+                              , month == "Jun", "06"
+                              , month == "Jul", "07"
+                              , month == "Aug", "08"
+                              , month == "Sep", "09"
+                              , month == "Oct", "10"
+                              , month == "Nov", "11"
+                              , month == "Dec", "12"
+                              , "01" )
+| extend formatted_time = strcat(year, "-", month_number, "-", day, " ", hour, ":", minute, ":", second)
+| extend TimeGenerated = todatetime(formatted_time)
+| project 
+    TimeGenerated,
+    action,
+    aggregate,
+    avgduration,
+    cdip,
+    cdport,
+    csip,
+    csport,
+    department,
+    destcountry,
+    devicehostname,
+    deviceowner,
+    dnat,
+    duration,
+    durationms,
+    inbytes,
+    ipcat,
+    ipsrulelabel,
+    locationname,
+    numsessions,
+    nwapp,
+    nwsvc,
+    outbytes,
+    proto,
+    rulelabel,
+    sdip,
+    sdport,
+    ssip,
+    ssport,
+    stateful,
+    threat_score,
+    threat_severity,
+    threatcat,
+    threatname,
+    tsip,
+    tunsport,
+    user
