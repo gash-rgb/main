@@ -1,8 +1,7 @@
 # =========================================
-# DFIR Browser Artifact Collector
-# - Chrome / Edge / Firefox
-# - Manifest CSV + Errors.log + Artifacts zipped
-# By SecOps Team
+## DFIR Browser Artifact Collector
+## Chrome / Edge / Firefox
+## Manifest CSV + Errors.log + Artifacts zipped
 # =========================================
 
 $Timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
@@ -131,3 +130,4 @@ Remove-Item $TempDir -Recurse -Force -ErrorAction SilentlyContinue
 Write-Output "Artifacts : $ZipFile"
 Write-Output "Manifest : $Manifest"
 Write-Output "Error logs : $ErrorLog"
+
