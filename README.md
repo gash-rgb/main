@@ -10,8 +10,8 @@ Welcome to the repository of Andrea G.! This project is a collection of scripts,
 
 - **Security Scripts**: Scripts used for various security tasks, such as log analysis, system checks, and automation during investigations/incident response.
 - **KQL Queries**: Kusto Query Language (KQL) queries used for threat hunting and log analysis within Azure Sentinel or other compatible platforms.
-- **Leaks & Breach Information**: Information and indicators of compromise (IOCs) related to data breaches, leaks, and other security incidents.
-- **IOCs (Indicators of Compromise)**: A collection of IOCs that can be used to detect malicious activity or confirm potential threats in your environment.
+- **Leaks & Breach Information & IOCs**: Information and indicators of compromise (IOCs) related to data breaches, leaks, and other security incidents.
+
 
 ## How to Use
 
