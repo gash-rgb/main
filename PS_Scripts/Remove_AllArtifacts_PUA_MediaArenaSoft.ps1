@@ -5,8 +5,6 @@
 ## Searcharchiver 
 ## Pdfmagic 
 ## Searchpoweronline
-## Script to be executed on admin server
-
 ## Put the logfile path here
 
 $Log = "C:\Users\$USER\Documents\MDE_Custom Script_$(Get-Date -Format 'yyyyMMddhhmmss').log"
